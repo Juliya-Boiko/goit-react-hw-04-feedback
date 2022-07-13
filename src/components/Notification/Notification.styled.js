@@ -5,7 +5,7 @@ export const NotificationMessage = styled.div`
     flex-direction: column;
     align-items: center;
     font-weight: ${props => props.theme.fontWeight.normal};
-    font-size: ${props => props.theme.ruler.double};
+    font-size: ${props => props.theme.ruler.standart};
     color: ${props => props.theme.colors.shadow};
 `;
 

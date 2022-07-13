@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PrimaryButton = styled.button`
     width: 10rem;
     height: 3rem;
-    margin: 5px 0;
+    margin: 0 5px;
     border: none;
     border-radius: 1rem;
     text-align: center;
