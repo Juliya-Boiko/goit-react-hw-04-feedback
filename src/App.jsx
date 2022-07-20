@@ -15,27 +15,42 @@ export function App() {
 
   const handlerGood = () => {
     setGood(prevCounter => prevCounter + 1);
-  }
+  };
   const handlerNeutral = () => {
     setNeutral(prevCounter => prevCounter + 1);
-  }
+  };
   const handlerBad = () => {
     setBad(prevCounter => prevCounter + 1);
-  }
+  };
 
-  useEffect(() => { setTotal((good + neutral + bad)) }, [good, neutral, bad]);
-  useEffect(() => { setPersentage(Math.round(good * 100 / total))}, [good, total]);
+  useEffect(() => {
+    setTotal(good + neutral + bad);
+  }, [good, neutral, bad]);
+  useEffect(() => {
+    setPersentage(Math.round((good * 100) / total));
+  }, [total]);
 
   return (
     <Container>
       <Section title="Please leave feedback">
-        <FeedbackOptions handlerGood={handlerGood} handlerNeutral={handlerNeutral} handlerBad={handlerBad} />
+        <FeedbackOptions
+          handlerGood={handlerGood}
+          handlerNeutral={handlerNeutral}
+          handlerBad={handlerBad}
+        />
       </Section>
       <Section title="Statistics">
-        {total === 0 ? 
-          <Notification message="There is no feedback" /> :
-          <Statistics good={good} neutral={neutral} bad={bad} total={total} positivePercentage={percentage} />
-        }
+        {total === 0 ? (
+          <Notification message="There is no feedback" />
+        ) : (
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={total}
+            positivePercentage={percentage}
+          />
+        )}
       </Section>
     </Container>
   );
